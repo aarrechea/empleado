@@ -1,0 +1,46 @@
+<!-- Imports -->
+{% extends 'base.html' %}
+
+
+<!-- Block title -->
+{% block title %}
+    New department
+{% endblock title %}
+    
+
+<!-- Block content -->
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">New department</h1>
+
+            <form class="cell callout grid-x grid-margin-x" method="post">
+                {% csrf_token %}
+                
+                <div class="cell medium-6">
+                    <label>Nombre: {{form.nombre}}</label>
+                </div>
+                
+                <div class="cell medium-6">
+                    <label>Apellido: {{form.apellido}}</label>
+                </div>                
+
+                <div class="cell medium-6">
+                    <label>Departamento: {{form.department}}</label>
+                </div>
+                
+                <div class="cell medium-6">
+                    <label>Nombre corto: {{form.short_name}}</label>
+                </div>
+                
+                <input class="button success" type="submit" value="Create">
+            </form>
+        </div>
+    </div>    
+{% endblock content %}
+    
+
+
+

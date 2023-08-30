@@ -1,0 +1,48 @@
+<!-- Imports -->
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- Block title -->
+{% block title %}
+    {{object.full_name}}
+{% endblock title %}
+
+
+<!-- Block content -->
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center">
+            <h1 class="cell text-center">Detail employee</h1>
+
+            <div class="card cell large-4" style="width: 300px;">
+                <div class="card-divider">
+                    {{employee.get_job_display}}
+                </div>
+                
+                {% if empleado.avatar %}
+                    <img src="{{empleado.avatar.url}}">
+                {% else %}
+                    <img src="{% static 'img/iss.jpeg' %}">
+                {% endif %}
+                                                    
+                <div class="card-section">
+                    <h4>{{employee.full_name}}</h4>
+                    <p>{{employee.departamento.short_name}}</p>
+                    <h5>Habilidades</h5>
+                    <ul class="vertical menu">
+                        {% for hab in employee.habilidades.all %}
+                            <li>{{hab.habilidad}}</li>
+                        {% endfor %}                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
+
+
+

@@ -1,0 +1,41 @@
+<!-- Imports -->
+{% extends 'base.html' %}
+
+
+<!-- Block title -->
+{% block title %}
+    Delete empleado
+{% endblock title %}
+    
+
+<!-- Block content -->
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">Delete employee</h1>
+
+            <form class="cell" method="post">
+                {% csrf_token %}                
+                
+                <div class="callout alert">
+                    <h5>Do you really want to delete the employee {{object}}</h5>
+                    
+                    <div>
+                        <button type="submit" class="alert button">Delete</button>
+                        <a href="{% url 'persona_app:list_all' %}" class="button">Cancel</a>    
+                    </div>                    
+                </div>
+            </form>
+        </div>        
+    </div>
+{% endblock content %}
+    
+
+
+
+
+
+

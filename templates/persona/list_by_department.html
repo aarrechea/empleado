@@ -1,0 +1,27 @@
+<!-- Imports -->
+{% extends 'base.html' %}
+
+
+<!-- Block title -->
+{% block title %}List by department{% endblock title %}
+    
+
+<!-- Block content -->
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container">
+        <h1>List by department</h1>
+
+        {% for dept in object_list %}
+            <ul>
+                <li>{{dept}}</li>
+            </ul>
+        {% endfor %}
+    </div>    
+{% endblock content %}
+    
+
+
+
+

@@ -1,0 +1,37 @@
+<!-- Imports -->
+{% extends 'base.html' %}
+
+
+<!-- Title block -->
+{% block title %}Departamentos{% endblock title %}
+
+
+<!-- Content block -->
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <!-- Department table and list of employees by department -->
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1>Departamentos de la empresa</h1>
+        </div>
+        
+        <div class="cell">
+            <table>
+                <tbody>
+                    {% for depto in departamentos %}
+                        <tr>
+                            <td>{{depto.name}}</td>
+                            <td>{{depto.short_name}}</td>
+                            <td>
+                                <a class="button warning" href="{% url 'persona_app:list_by_department' depto.name %}">Ver empleados</a>
+                            </td>
+                        </tr>
+                    {% endfor %}                    
+                </tbody>
+            </table>
+        </div>
+    </div>    
+{% endblock content %}
+
+
